@@ -127,7 +127,7 @@ padding: 20px;
 box-sizing: border-box;
 opacity: 0;
 transform: translateY(80px);
-transition: opacity 1.5s ease-out 0.3s, transform 1.5s ease-out 0.3s;
+transition: opacity 1.5s ease-out 0s, transform 1.5s ease-out 0s;
   /* Slower animation and delay */
   /* Slower animation and delay */
 }
@@ -224,7 +224,7 @@ transition: opacity 1.5s ease-out 0.3s, transform 1.5s ease-out 0.3s;
   display: flex;
   opacity: 0;
   transform: translateY(80px);
-  transition: opacity 1.5s ease-out 0.3s, transform 1.5s ease-out 0.3s;
+  transition: opacity 1.5s ease-out 0s, transform 1.5s ease-out 0s;
 }
 
 .team-section-bottom.active {
