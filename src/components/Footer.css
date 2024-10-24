@@ -1,0 +1,146 @@
+.footer-container {
+ height: 200px;
+ background-color: rgb(222, 202, 177);
+ display: flex;
+ flex-direction: column;
+}
+
+.footer-info {
+ flex: 2;
+ display: flex;
+}
+
+.footer-left,
+.footer-middle,
+.footer-right {
+ flex: 1;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: flex-start;
+ margin-top: 3rem;
+ text-align: center;
+ position: relative;
+ /* Needed for positioning the ::after element */
+}
+
+.footer-left::after,
+.footer-middle::after {
+ content: "";
+ position: absolute;
+ right: 0;
+ top: 10%;
+ /* Adjust based on where you want the line to start */
+ height: 80%;
+ /* Adjust based on how long you want the line to be */
+ width: 1px;
+ background-color: #000;
+ opacity: 0.3;
+}
+
+.footer-left::after {
+ right: -10px;
+}
+
+.footer-middle::after {
+ right: -10px;
+}
+
+.footer-right::after {
+ content: none;
+ /* No line after the last section */
+}
+
+.footer-left h1,
+.footer-middle h1,
+.footer-right h1 {
+ font-size: 20px;
+ margin-bottom: 1rem;
+}
+
+.footer-left p,
+.footer-middle p,
+.footer-right p {
+ margin: 0;
+ padding: 0;
+}
+
+.footer-copyright {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex: 1;
+}
+
+/* Media queries for mobile responsiveness */
+@media (max-width: 810px) {
+
+  /* Remove the vertical lines for smaller screens */
+  .footer-left::after,
+  .footer-middle::after {
+    content: none;
+  }
+
+  .footer-container {
+    height: auto;
+
+  }
+
+  .footer-info {
+    flex-direction: column;
+
+  }
+
+  .footer-left,
+  .footer-middle,
+  .footer-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    margin-top: .5rem;
+    position: relative;
+    padding-bottom: 1.5rem; /* Ensure there's space for the line */
+  }
+
+  /* Add horizontal lines */
+  .footer-left::after,
+  .footer-middle::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #000;
+  }
+
+  .footer-right::after {
+    content: none;
+  }
+
+  .footer-left h1,
+  .footer-middle h1,
+  .footer-right h1 {
+    font-size: 20px;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-left p,
+  .footer-middle p,
+  .footer-right p {
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-copyright {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: .5rem;
+    flex: 1;
+  }
+}
