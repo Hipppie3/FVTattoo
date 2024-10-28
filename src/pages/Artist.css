@@ -1,0 +1,78 @@
+.artist-container {
+ min-height: 100dvh;
+ padding-top: 10rem;
+ background-color: black;
+ color: white;
+}
+
+.artist-description {
+ text-align: justify;
+ margin: 2rem auto 0 auto;
+ width: 40%;
+ justify-content: center;
+ font-stretch: expanded;
+ letter-spacing: 0.1em;
+ line-height: 1.5;
+}
+
+.artist-description h2 {
+ margin-bottom: 1rem;
+}
+
+.artist-divider {
+   width: 100%;
+   /* Width of the line */
+   height: 4px;
+   /* Thickness of the line */
+   background-color: rgb(20, 129, 127);
+   /* Color of the line */
+   margin: 20px 0;
+}
+.artist-list {
+ max-width: 1400px;
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+ gap: 4rem;
+ justify-items: center;
+ padding: 8rem 4rem;
+ margin: 0 auto;
+}
+.artist {
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+ text-align: flex-start;
+}
+
+.artist img {
+ width: 240px;
+ height: 320px;
+ object-fit: cover;
+ margin-bottom: 1rem;
+}
+
+.artist h3 {
+ font-size: 1.2rem;
+ margin: 0;
+ font-stretch: expanded;
+ letter-spacing: 0.1em;
+}
+
+.artist-name-divider {
+    width: 100%;
+     /* Width of the line */
+     height: 4px;
+     /* Thickness of the line */
+     background-color: rgb(20, 129, 127);
+     /* Color of the line */
+     margin: 20px 0;
+}
+
+/* Adjust padding for smaller screens */
+@media (max-width: 768px) {
+ .artist-description{
+  width: 80%;
+ }
+
+ 
+}

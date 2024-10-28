@@ -7,10 +7,12 @@ import About from './pages/About'
 import Artist from './pages/Artist'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
     <div className='app-container'>
+      <ScrollToTop />
       <Navbar />
     <main>
       <Routes>

@@ -282,6 +282,7 @@ margin-bottom: 2rem;
   border: 1px solid white;
   height: 44px;
   width: 260px;
+  transition: background-color 0.3s ease, border 0.3s ease, font-weight 0.3s ease;
 }
 
 .team-right-info button:hover {
