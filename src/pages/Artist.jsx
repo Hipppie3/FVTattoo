@@ -1,5 +1,6 @@
 import React from 'react';
 import './Artist.css';
+import { useNavigate } from 'react-router-dom'
 
 // Create an array of artist data
 const artistData = [
@@ -14,6 +15,13 @@ const artistData = [
 ];
 
 function Artist() {
+    const navigate = useNavigate(); // Hook to navigate to other routes
+
+  const handleArtistClick = (id) => {
+    // Navigate to the artist profile page
+    navigate(`/artist/${id}`);
+  };
+
   return (
     <div className='artist-container'>
       <div className='artist-description'>
@@ -31,7 +39,12 @@ function Artist() {
       </div>
       <div className='artist-list'>
         {artistData.map((artist) => (
-          <div className='artist' key={artist.id}>
+          <div
+            className='artist'
+            key={artist.id}
+            onClick={() => handleArtistClick(artist.id)} // Handle click event
+            style={{ cursor: 'pointer' }} // Add pointer cursor for better UX
+          >
             <img src={artist.img} alt={artist.name} />
             <h3>{artist.name}</h3>
             <div className='artist-name-divider'></div>

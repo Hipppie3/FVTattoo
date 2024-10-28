@@ -1,0 +1,15 @@
+.artist-profile-container {
+ min-height: 100dvh;
+ display: flex;
+ flex-direction: column;
+}
+
+.artist-profile {
+ flex: 2;
+ background-color: black;
+}
+
+.artist-gallery {
+ flex: 2;
+ background-color: rgb(245, 237, 227);
+}

@@ -99,7 +99,7 @@ z-index: 2;
 .about-section {
  height: 100vh;
  /* Full height for the second section */
- background-color: rgb(253, 253, 247);
+ background-color: rgb(245, 237, 227);
  display: flex;
  flex-direction: column;
 }
