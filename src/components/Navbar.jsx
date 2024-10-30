@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom'; // Import useLocation
+import { NavLink, useLocation } from 'react-router-dom';
 import './Navbar.css';
-import logo from '../images/logo.png'; // Import your logo image
+import logo from '../images/logo.png'; 
 import { SocialIcon } from 'react-social-icons';
 
 function Navbar() {
-  const [isMenuOpen, setMenuOpen] = useState(false); // State to handle menu toggle
-  const [navbarScrolled, setNavbarScrolled] = useState(false); // State to handle scroll effect
-  const location = useLocation(); // Use useLocation hook to detect current route
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  const [navbarScrolled, setNavbarScrolled] = useState(false);
+  const location = useLocation(); 
 
-  // Function to handle scroll event
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
@@ -25,7 +24,6 @@ function Navbar() {
     };
   }, []);
 
-  // Apply transparent background only on the home page
   const isHomePage = location.pathname === '/';
 
   return (
@@ -36,37 +34,43 @@ function Navbar() {
         </NavLink>
       </div>
 
-      {/* Hamburger Icon for small screens */}
       <div className="hamburger" onClick={() => setMenuOpen(!isMenuOpen)}>
-        {isMenuOpen ? '✕' : '☰'} {/* Shows X when open and Hamburger when closed */}
+        {isMenuOpen ? '✕' : '☰'}
       </div>
 
-      {/* Nav Links */}
       <ul className={`nav-links ${isMenuOpen ? "open" : ""}`}>
         <li>
-          <NavLink exact="true" 
-          to='/about' 
-          className={({ isActive }) => (isActive ? 'active-link' : 'link')}>
+          <NavLink 
+            exact="true" 
+            to='/about' 
+            className={({ isActive }) => (isActive ? 'active-link' : 'link')}
+            onClick={() => setMenuOpen(false)}
+          >
             ABOUT
           </NavLink>
         </li>
         <li>
-          <NavLink exact="true" 
-          to='/artist' 
-          className={({ isActive }) => (isActive ? 'active-link' : 'link')}>
+          <NavLink 
+            exact="true" 
+            to='/artist' 
+            className={({ isActive }) => (isActive ? 'active-link' : 'link')}
+            onClick={() => setMenuOpen(false)}
+          >
             ARTISTS
           </NavLink>
         </li>
         <li>
-          <NavLink exact="true" 
-          to='/contact' 
-          className={({ isActive }) => (isActive ? 'active-link' : 'link')}>
+          <NavLink 
+            exact="true" 
+            to='/contact' 
+            className={({ isActive }) => (isActive ? 'active-link' : 'link')}
+            onClick={() => setMenuOpen(false)}
+          >
             CONTACT
           </NavLink>
         </li>
       </ul>
 
-      {/* Social Icons */}
       <div className="nav-icons">
         <ul>
           <li className='icons'>
