@@ -1,15 +1,98 @@
 .artist-profile-container {
- min-height: 100dvh;
  display: flex;
  flex-direction: column;
 }
 
 .artist-profile {
- flex: 2;
+ min-height: 80vh;
  background-color: black;
+ padding-top: 8rem;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: row;
 }
 
-.artist-gallery {
+.artist-profile-image {
  flex: 2;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ max-width: 600px;
+}
+
+.artist-profile-image img {
+ height: 400px;
+ width: 320px;
+ object-fit: cover;
+}
+
+.artist-description {
+ flex: 3;
+ color: white;
+ margin-top: 0;
+}
+
+.artist-description h1 {
+ margin-bottom: 1rem;
+}
+
+.artist-description p {
+ max-width: 500px;
+ text-align: left;
+  /* Ensure the text aligns to the left */
+  margin: 0;
+  /* Reset any default margins */
+}
+.artist-gallery {
+ min-height: 52vh;
  background-color: rgb(245, 237, 227);
 }
+
+@media (max-width: 980px) {
+ .artist-profile {
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+  /* Center the whole profile content */
+ }
+
+ .artist-profile-image {
+  width: 100%;
+  /* Ensure the image takes the full width */
+  max-width: 90%;
+  /* Match the image width you want */
+ }
+
+ .artist-profile-image img {
+  height: auto;
+  width: 100%;
+  /* Ensure the image scales responsively */
+  object-fit: cover;
+ }
+
+ .artist-description {
+  width: 100%;
+  /* Match the description width to the image */
+  max-width: 90%;
+  /* Same max-width as the image */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 0;
+  /* Remove left padding */
+  padding-top: 1rem;
+  /* Add some top padding to separate from image */
+ }
+
+ .artist-description h1,
+ .artist-description p {
+  text-align: left;
+  width: 100%;
+  /* Ensure the h1 and p are full-width */
+  margin: 0;
+ }
+}
+

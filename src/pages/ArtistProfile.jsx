@@ -8,6 +8,10 @@ const artistData = [
   { id: 3, name: 'Drake', img: 'https://via.placeholder.com/150', bio: 'Bio for Drake' },
   { id: 4, name: 'Tony Garcia', img: 'https://via.placeholder.com/150', bio: 'Bio for Tony' },
   // More artist data
+    { id: 5, name: 'Mikey Ballek', img: 'https://via.placeholder.com/150' },
+  { id: 6, name: 'Nathan Woelke', img: 'https://via.placeholder.com/150' },
+  { id: 7, name: 'Drake', img: 'https://via.placeholder.com/150' },
+  { id: 8, name: 'Tony Garcia', img: 'https://via.placeholder.com/150', bio: `Tony is one of our leading Artist. He's been here for 10 years and has a dedicated follwering` } 
 ];
 
 function ArtistProfile() {
@@ -20,13 +24,21 @@ function ArtistProfile() {
 
   return (
     <div className='artist-profile-container'>
-      <div className='artist-profile'>
-        <h1>{artist.name}</h1>
-        <img src={artist.img} alt={artist.name} />
-        <p>{artist.bio}</p>
-      </div>
-      <div className='artist-gallery'>
 
+      <div className='artist-profile'>
+        <div className='artist-profile-image' >
+          <img src={artist.img} alt={artist.name} />
+        </div>
+        <div className='artist-description'>
+          <h1>{artist.name}</h1>
+          <p>{artist.bio}</p>
+        </div>
+      </div>
+
+      <div className='artist-gallery'>
+        <h2 className='artist-gallery-title'>
+          {artist.name.toUpperCase()} WORK
+        </h2>
       </div>
     </div>
   );
