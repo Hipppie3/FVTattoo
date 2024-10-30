@@ -29,7 +29,7 @@ function ArtistProfile() {
         <div className='artist-profile-image' >
           <img src={artist.img} alt={artist.name} />
         </div>
-        <div className='artist-description'>
+        <div className='artist-profile-description'>
           <h1>{artist.name}</h1>
           <p>{artist.bio}</p>
         </div>

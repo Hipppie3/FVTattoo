@@ -1,0 +1,87 @@
+.contact-container {
+ background-color: rgb(248, 244, 238);
+ height: 100vh;
+}
+
+.contact-page {
+ max-width: 600px;
+ width: 100%;
+ min-height: 100%;
+ margin: 0 auto;
+ padding: 8rem 1rem 0 1rem;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+}
+.contact-title {
+ text-align: left;
+ /* Align title to the left */
+ font-size: 2rem;
+ margin-bottom: 1rem;
+}
+
+.contact-divider {
+ width: 100%;
+ /* Make the divider span the full width */
+ margin: 0.5rem 0 1.5rem;
+ /* Adjust margins for alignment */
+ border: none;
+ border-top: 2px solid rgb(20, 129, 127);
+}
+
+.contact-description {
+ text-align: left;
+ /* Align description to the left */
+ margin-bottom: 1rem;
+ font-size: 1.2rem;
+}
+
+.contact-form {
+ display: flex;
+ flex-direction: column;
+}
+
+.form-group {
+ margin-bottom: 1rem;
+}
+
+
+.form-group input,
+.form-group textarea {
+ width: 100%;
+ /* Widen the inputs to take the full available width */
+ padding: 1rem;
+ /* Add padding for better spacing */
+ font-size: 1rem;
+ border: 1px solid #ccc;
+ border-radius: 4px;
+ max-width: 100%;
+ /* Ensure they don't overflow the container */
+}
+
+.form-group textarea {
+ height: 150px;
+ /* Make the message box taller */
+ resize: none;
+}
+
+.form-group input[type="file"] {
+ padding: 0;
+}
+
+.submit-button {
+ padding: 0.75rem 1.5rem;
+ font-size: 1rem;
+ background-color: white;
+ color: black;
+ border: 2px solid black;
+ border-radius: 4px;
+ cursor: pointer;
+ transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+ background-color: rgb(248, 244, 238);
+ font-weight: bold;
+ border: 3px solid black
+}

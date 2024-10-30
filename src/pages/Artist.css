@@ -1,8 +1,8 @@
 .artist-container {
  min-height: 100dvh;
  padding-top: 10rem;
- background-color: black;
- color: white;
+ background-color: rgb(248, 244, 238);
+ color: black;
 }
 
 .artist-description {
@@ -13,6 +13,7 @@
  font-stretch: expanded;
  letter-spacing: 0.1em;
  line-height: 1.5;
+ color: black;
 }
 
 .artist-description h2 {
