@@ -1,24 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Artist.css';
-import { useNavigate } from 'react-router-dom'
-
-// Create an array of artist data
-const artistData = [
-  { id: 1, name: 'Mikey Ballek', img: 'https://via.placeholder.com/150' },
-  { id: 2, name: 'Nathan Woelke', img: 'https://via.placeholder.com/150' },
-  { id: 3, name: 'Drake', img: 'https://via.placeholder.com/150' },
-  { id: 4, name: 'Tony Garcia', img: 'https://via.placeholder.com/150' },
-  { id: 5, name: 'Mikey Ballek', img: 'https://via.placeholder.com/150' },
-  { id: 6, name: 'Nathan Woelke', img: 'https://via.placeholder.com/150' },
-  { id: 7, name: 'Drake', img: 'https://via.placeholder.com/150' },
-  { id: 8, name: 'Tony Garcia', img: 'https://via.placeholder.com/150' }
-];
+import { useNavigate } from 'react-router-dom';
 
 function Artist() {
-    const navigate = useNavigate(); // Hook to navigate to other routes
+  const [artistData, setArtistData] = useState([]); // State to store fetched artist data
+  const navigate = useNavigate();
+
+  // Fetch artist data from the JSON file
+  useEffect(() => {
+    fetch('/artists.json') // Fetch from the public folder
+      .then((response) => response.json())
+      .then((data) => setArtistData(data))
+      .catch((error) => console.error('Error fetching artist data:', error));
+  }, []);
 
   const handleArtistClick = (id) => {
-    // Navigate to the artist profile page
     navigate(`/artist/${id}`);
   };
 
@@ -42,8 +38,8 @@ function Artist() {
           <div
             className='artist'
             key={artist.id}
-            onClick={() => handleArtistClick(artist.id)} // Handle click event
-            style={{ cursor: 'pointer' }} // Add pointer cursor for better UX
+            onClick={() => handleArtistClick(artist.id)}
+            style={{ cursor: 'pointer' }}
           >
             <img src={artist.img} alt={artist.name} />
             <h3>{artist.name}</h3>

@@ -1,44 +1,48 @@
-import React from 'react';
-import { useParams } from 'react-router-dom'; // Hook to get route parameters
-import './ArtistProfile.css'
-
-const artistData = [
-  { id: 1, name: 'Mikey Ballek', img: 'https://via.placeholder.com/150', bio: 'Bio for Mikey' },
-  { id: 2, name: 'Nathan Woelke', img: 'https://via.placeholder.com/150', bio: 'Bio for Nathan' },
-  { id: 3, name: 'Drake', img: 'https://via.placeholder.com/150', bio: 'Bio for Drake' },
-  { id: 4, name: 'Tony Garcia', img: 'https://via.placeholder.com/150', bio: 'Bio for Tony' },
-  // More artist data
-    { id: 5, name: 'Mikey Ballek', img: 'https://via.placeholder.com/150' },
-  { id: 6, name: 'Nathan Woelke', img: 'https://via.placeholder.com/150' },
-  { id: 7, name: 'Drake', img: 'https://via.placeholder.com/150' },
-  { id: 8, name: 'Tony Garcia', img: 'https://via.placeholder.com/150', bio: `Tony is one of our leading Artist. He's been here for 10 years and has a dedicated follwering` } 
-];
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import CustomCarousel from '../components/CustomCarousel'; // Updated to CustomCarousel
+import './ArtistProfile.css';
 
 function ArtistProfile() {
-  const { id } = useParams(); // Get the artist ID from the route parameters
-  const artist = artistData.find((artist) => artist.id === parseInt(id)); // Find the artist by ID
+  const { id } = useParams();
+  const [artist, setArtist] = useState(null);
+
+  useEffect(() => {
+    fetch('/artists.json')
+      .then((response) => response.json())
+      .then((data) => {
+        const foundArtist = data.find((artist) => artist.id === parseInt(id));
+        setArtist(foundArtist);
+      });
+  }, [id]);
 
   if (!artist) {
-    return <div>Artist not found</div>;
+    return <div>Loading...</div>;
   }
 
   return (
-    <div className='artist-profile-container'>
-
-      <div className='artist-profile'>
-        <div className='artist-profile-image' >
+    <div className="artist-profile-container">
+      <div className="artist-profile">
+        <div className="artist-profile-image">
           <img src={artist.img} alt={artist.name} />
         </div>
-        <div className='artist-profile-description'>
-          <h1>{artist.name}</h1>
+        <div className="artist-profile-description">
+          <h1>{artist.name.toUpperCase()}</h1>
           <p>{artist.bio}</p>
         </div>
       </div>
-
-      <div className='artist-gallery'>
-        <h2 className='artist-gallery-title'>
-          {artist.name.toUpperCase()} WORK
-        </h2>
+      <div className="artist-gallery">
+        <h2>{artist.name.toUpperCase()}'S WORK</h2>
+        <div className="artist-gallery-divider"></div>
+        
+        {/* Conditional rendering for carousel or message */}
+        {artist.work && artist.work.length > 0 ? (
+          <CustomCarousel images={artist.work} visibleItems={4} />
+        ) : (
+          <p className="no-work-message">
+            This artist currently has no work to display.
+          </p>
+        )}
       </div>
     </div>
   );

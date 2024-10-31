@@ -1,27 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Home.css';
-import frank from '../images/frank.jpg'
-import kobe from '../images/kobe.webp'; // Import images directly
-import jordan from '../images/jordan.webp';
-import curry from '../images/curry.webp';
 import { useNavigate } from 'react-router-dom';
+import frank from '../images/frank.jpg';
 
 // Define the images array directly in the file
-const teamImages = [
-  {
-    name: 'Kobe',
-    image: kobe,
-  },
-  {
-    name: 'Jordan',
-    image: jordan,
-  },
-  {
-    name: 'Curry',
-    image: curry,
-  }
-];
-
 function Home() {
   const aboutRef = useRef(null);
   const teamRef = useRef(null);
@@ -29,8 +11,28 @@ function Home() {
   const [isAboutVisible, setIsAboutVisible] = useState(false);
   const [isTeamVisible, setIsTeamVisible] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [artistData, setArtistData] = useState([]); // Store artist data
 
   const navigate = useNavigate();
+
+  // Fetch artist data from the JSON file
+  useEffect(() => {
+    fetch('/artists.json') // Fetch from the public folder
+      .then((response) => response.json())
+      .then((data) => setArtistData(data))
+      .catch((error) => console.error('Error fetching artist data:', error));
+  }, []);
+
+  // Cycle through images every 3 seconds
+  useEffect(() => {
+    if (artistData.length > 0) {
+      const interval = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % artistData.length);
+      }, 3000);
+
+      return () => clearInterval(interval); // Cleanup the interval on unmount
+    }
+  }, [artistData]);
 
   useEffect(() => {
     const aboutObserver = new IntersectionObserver(
@@ -78,17 +80,6 @@ function Home() {
     };
   }, []);
 
-  useEffect(() => {
-    // Cycle through images every 3 seconds
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % teamImages.length);
-    }, 3000);
-
-    return () => {
-      clearInterval(interval); // Cleanup the interval on unmount
-    };
-  }, []);
-
   const meetArtist = () => {
     navigate('/artist');
   };
@@ -127,11 +118,13 @@ function Home() {
           <div className='team-left'>
             <div className='team-image'>
               {/* Display current image */}
-              <img
-                src={teamImages[currentImageIndex].image}
-                alt={teamImages[currentImageIndex].name}
-                style={{ width: '100%', height: '100%' }}
-              />
+              {artistData.length > 0 && (
+                <img
+                  src={artistData[currentImageIndex]?.img}
+                  alt={artistData[currentImageIndex]?.name}
+                  style={{ width: '100%', height: '100%' }}
+                />
+              )}
             </div>
           </div>
 

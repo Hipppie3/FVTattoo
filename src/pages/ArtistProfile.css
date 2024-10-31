@@ -45,9 +45,32 @@
   /* Reset any default margins */
 }
 .artist-gallery {
- min-height: 52vh;
- background-color: white;
+  min-height: 52vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Align to the left */
+  padding-top: 2rem;
+  width: 100%;
+  max-width: 1000px; /* Match the max-width of .artist-profile-image */
+  margin: 0 auto; /* Center aligns the content when space permits */
+  padding-left: 20px; /* Optional, tweak to add a slight offset from the edge */
 }
+
+
+
+.artist-gallery-divider {
+      width: 28%;
+      /* Width of the line */
+      height: 3px;
+      /* Thickness of the line */
+      background-color: rgb(20, 129, 127);
+      /* Color of the line */
+      margin: 20px 0;
+}
+
+
 
 @media (max-width: 980px) {
  .artist-profile {

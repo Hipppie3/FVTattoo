@@ -1,8 +1,38 @@
 .about-content {
  padding: 200px 20px;
- /* Add padding to push content down from the top */
+ display: flex;
  text-align: center;
- /* Center the text horizontally */
+}
+
+.about-left {
+ flex: 1;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.image-container {
+ width: 80%;
+ max-width: 500px;
+ height: auto;
+ aspect-ratio: 1;
+ overflow: hidden;
+ border-radius: 15px;
+}
+
+.image-container img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+}
+
+.about-right {
+ flex: 1;
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-start;
+ align-items: flex-start;
+ padding: 20px;
 }
 
 .about-content h1 {
@@ -12,4 +42,23 @@
 
 .about-content p {
  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+ .about-content {
+  flex-direction: column;
+  padding-top: 100px;
+ }
+
+ .about-left {
+  margin-bottom: 20px;
+ }
+
+ .about-content h1 {
+  font-size: 2.5rem;
+ }
+
+ .about-content p {
+  font-size: 1.2rem;
+ }
 }
