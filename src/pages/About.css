@@ -2,6 +2,8 @@
  padding: 200px 20px;
  display: flex;
  text-align: center;
+ width: 100%;
+ /* Ensure it takes full width */
 }
 
 .about-left {
@@ -33,6 +35,16 @@
  justify-content: flex-start;
  align-items: flex-start;
  padding: 20px;
+ /* max-width: 400px; */
+ /* Remove or adjust this constraint */
+ flex-basis: 0;
+ /* Allow it to grow based on flex: 3 */
+}
+
+.about-right h1,
+.about-right p {
+ text-align: left;
+ width: 100%;
 }
 
 .about-content h1 {
@@ -42,12 +54,14 @@
 
 .about-content p {
  font-size: 1.5rem;
+ max-width: 90%;
+ line-height: 1.6;
 }
 
 @media (max-width: 768px) {
  .about-content {
   flex-direction: column;
-  padding-top: 100px;
+  padding-top: 200px;
  }
 
  .about-left {
@@ -60,5 +74,6 @@
 
  .about-content p {
   font-size: 1.2rem;
+  max-width: 100%;
  }
 }
