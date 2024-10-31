@@ -3,9 +3,9 @@ import './About.css';
 
 function About() {
   const images = [
-    '/src/images/inside.jpg',
-    '/src/images/inside2.jpg',
-    '/src/images/outside.jpg',
+    '/inside.jpg',
+    '/inside2.jpg',
+    '/outside.jpg',
     // Add as many images as you like
   ];
 
